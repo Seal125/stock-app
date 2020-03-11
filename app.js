@@ -21,6 +21,10 @@ app.get('/signin', (req, res) => {
 
 const user = new User();
 
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio.ejs')
+})
+
 app.post('/portfolio', (req, res) => {
   console.log(req.body)
   user.name = req.body.name

@@ -1,22 +1,26 @@
-class User {
-  constructor(name, email, password) {
-    this.name = name
-    this.email = email
-    this.password = password
-    this.registered = false
-  }
+const mongoose = require("mongoose");
 
-  get userName() {
-    if (!this.name[0].match(/[A-Z]/)) {
-      let split = this.name.substring(1)
-      this.name = this.name[0].toUpperCase() + split
-      return this.name
-    }
+const User = mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  },
+  registered: {
+    type: Boolean,
+    default: false
   }
+});
 
-  isRegistered() {
-    this.registered = true
-  }
-}
-
-module.exports = User;
+module.exports = mongoose.model("user", User);
