@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
   });
 });
 
+app.use("/signin", user);
 
 app.listen(PORT, (req, res) => {
   console.log(`Listening at port ${PORT}`);
