@@ -1,7 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const user = require("./routes/user");
+const InitMongoServer = require("./database/db");
+
+InitMongoServer();
+
 const app = express();
-const PORT = process.env.PORT || 4000;
+
+const port = process.env.PORT || 4000;
+
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.json({
@@ -9,6 +17,9 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(PORT, (req, res) => {
-  console.log(`Listening at port ${PORT}`);
+app.use("/user", user);
+
+
+app.listen(port, (req, res) => {
+  console.log(`Listening at port ${port}`);
 });
