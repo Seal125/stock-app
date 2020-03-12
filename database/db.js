@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const mongoDbURI = 'mongodb+srv://seal125:brasil125@stock-app-db-nzzfb.mongodb.net/test?retryWrites=true&w=majority';
 
-const InitiateMongoServer = async () => {
+const InitMongoServer = async () => {
   try {
     await mongoose.connect(mongoDbURI, {
       useNewUrlParser: true
@@ -14,4 +14,4 @@ const InitiateMongoServer = async () => {
   }
 };
 
-module.exports = InitiateMongoServer;
+module.exports = InitMongoServer;
