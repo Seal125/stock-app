@@ -1,16 +1,22 @@
-<h1>Register</h1>
+<% layout('layout') -%>
+<main class="account">
+  <h1>Register</h1>
 
-<form method='post' action='/portfolio'>
-  <label for="name-input"> Name</label>
-  <input type="text" name="name" id="name-input">
+  <section class="form">
+    <form method='post' action='/portfolio'>
+      <fieldset class='form-field'>
+        <label for="name-input">Name</label>
+        <input type="text" name="name" id="name-input">
 
-  <label for="email-signin-input"> Email</label>
-  <input type='email' name='email' id='email-signin-input' />
+        <label for="email-reg-input">Email</label>
+        <input type='email' name='email' id='email-reg-input' />
 
-  <label for="password-signin-input"> Password</label>
-  <input type="password" name="password" id="password-signin-input" />
+        <label for="password-reg-input">Password</label>
+        <input type="password" name="password" id="password-reg-input" />
 
-  <input type="submit" name="submit" value="Register">
-</form>
-
-<a href="signin">Already have an account?</a>
+        <input type="submit" name="submit" value="Register" formmethod="post" formaction="/register">
+        <a class="reroutes" href="signin">Already have an account?</a>
+      </fieldset>
+    </form>
+  </section>
+</main>
