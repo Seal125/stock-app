@@ -6,6 +6,7 @@ const {
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
+const auth = require('../auth/auth')
 
 const User = require("../src/User");
 
@@ -70,6 +71,7 @@ router.post(
           res.status(200).json({
             token
           });
+          res.redirect('/user/signin')
         }
       );
     } catch (err) {
@@ -107,7 +109,7 @@ router.post(
       });
       if (!user)
         return res.status(400).json({
-          message: "User does not exist. Please make an account."
+          message: "User does not exist. Either enter your email correctly, or make an account."
         });
 
       const isMatch = await bcrypt.compare(password, user.password);
@@ -129,9 +131,10 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.status(200).json({
-            token
-          });
+          res.redirect('/portfolio')
+          // res.status(200).json({
+          //   token
+          // });
         }
       );
     } catch (e) {
@@ -143,9 +146,7 @@ router.post(
   }
 );
 
-const auth = require('../auth/auth')
-
-router.get("/me", auth, async (req, res) => {
+router.get("/portfolio", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     res.json(user);
