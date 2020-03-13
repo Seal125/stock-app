@@ -131,7 +131,6 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.redirect('/portfolio')
           // res.status(200).json({
           //   token
           // });

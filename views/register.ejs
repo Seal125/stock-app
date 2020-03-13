@@ -1,10 +1,10 @@
 <% layout('layout') -%>
-<main>
+<main class="account">
   <h1>Register</h1>
 
-  <section class="register-form">
+  <section class="form">
     <form method='post' action='/portfolio'>
-      <fieldset>
+      <fieldset class='form-field'>
         <label for="name-input">Name</label>
         <input type="text" name="name" id="name-input">
 
@@ -15,9 +15,8 @@
         <input type="password" name="password" id="password-reg-input" />
 
         <input type="submit" name="submit" value="Register" formmethod="post" formaction="/register">
+        <a class="reroutes" href="signin">Already have an account?</a>
       </fieldset>
     </form>
   </section>
-
-  <a href="signin">Already have an account?</a>
 </main>
