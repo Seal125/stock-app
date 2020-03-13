@@ -30,9 +30,7 @@ app.get('/signin', (req, res) => {
   res.render('signin.ejs')
 })
 
-app.post('/portfolio', (req, res) => {
-  console.log(req.body)
-  user.name = req.body.name
+app.get('/portfolio', (req, res) => {
   res.render('portfolio.ejs')
 })
 

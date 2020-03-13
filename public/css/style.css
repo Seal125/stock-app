@@ -35,8 +35,24 @@ h1 {
 .navbar {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin: 0;
 }
 
 .navbar ul {
+  margin-right: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: flex-end;
   list-style-type: none;
+}
+
+.navbar ul li {
+  margin-left: 10%;
+}
+
+.profile-title {
+  text-align: left;
+  margin-left: 14%;
 }

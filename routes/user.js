@@ -131,9 +131,10 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          // res.status(200).json({
-          //   token
-          // });
+          res.status(200).json({
+            token
+          });
+          res.redirect('/portfolio')
         }
       );
     } catch (e) {
@@ -145,7 +146,7 @@ router.post(
   }
 );
 
-router.get("/portfolio", auth, async (req, res) => {
+router.post("/portfolio", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     res.json(user);
