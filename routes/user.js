@@ -11,7 +11,7 @@ const auth = require('../auth/auth')
 const User = require("../src/User");
 
 router.post(
-  "/",
+  "/register",
   [
     check("name", "Please enter your name.")
     .not()
@@ -71,7 +71,7 @@ router.post(
           res.status(200).json({
             token
           });
-          res.redirect('/signin')
+          res.redirect('/user/signin')
         }
       );
     } catch (err) {
@@ -146,7 +146,7 @@ router.post(
   }
 );
 
-router.post("/portfolio", auth, async (req, res) => {
+router.get("/portfolio", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     res.json(user);
