@@ -7,7 +7,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const auth = require('../auth/auth')
-
 const User = require("../src/User");
 
 router.post(
@@ -47,7 +46,8 @@ router.post(
       user = new User({
         name,
         email,
-        password
+        password,
+        balance
       });
 
       const salt = await bcrypt.genSalt(10);
@@ -71,7 +71,6 @@ router.post(
           res.status(200).json({
             token
           });
-          res.redirect('/user/signin')
         }
       );
     } catch (err) {
@@ -134,7 +133,6 @@ router.post(
           res.status(200).json({
             token
           });
-          res.redirect('/portfolio')
         }
       );
     } catch (e) {

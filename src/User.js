@@ -16,6 +16,10 @@ const User = mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now()
+  },
+  balance: {
+    type: Number,
+    default: 5000
   }
 });
 

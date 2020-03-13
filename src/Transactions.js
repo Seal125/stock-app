@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const StockTicker = mongoose.Schema({
+const Transactions = mongoose.Schema({
   user_id: {
     type: String,
     required: true,
@@ -13,6 +13,14 @@ const StockTicker = mongoose.Schema({
     type: Number,
     required: true,
   },
+  cost: {
+    type: Number,
+    required: true
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model("stockTicker", StockTicker);
+module.exports = mongoose.model("transactions", Transactions);

@@ -37,14 +37,14 @@ h1 {
   flex-direction: row;
   justify-content: flex-end;
   margin: 0;
+  margin-right: 8%;
 }
 
 .navbar ul {
-  margin-right: 2%;
+  padding-right: 4%;
   margin-top: 1%;
   margin-bottom: 1%;
   display: flex;
-  justify-content: flex-end;
   list-style-type: none;
 }
 
@@ -55,4 +55,19 @@ h1 {
 .profile-title {
   text-align: left;
   margin-left: 14%;
+}
+
+.portfolio-info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#buying-form {
+  margin-top: 3%;
+  padding-top: 3%;
+  text-align: center;
+  width: 20%;
+  border-left: 3px solid black;
+  padding-left: 5%;
+  margin-left: 15%;
 }
