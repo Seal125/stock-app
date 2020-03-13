@@ -36,6 +36,10 @@ app.post('/portfolio', (req, res) => {
   res.render('portfolio.ejs')
 })
 
+app.get('/transactions', (req, res) => {
+  res.render('transactions.ejs')
+})
+
 app.use("/", user);
 
 app.listen(port, (req, res) => {
