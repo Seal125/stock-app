@@ -11,7 +11,7 @@ const auth = require('../auth/auth')
 const User = require("../src/User");
 
 router.post(
-  "/register",
+  "/",
   [
     check("name", "Please enter your name.")
     .not()
@@ -71,7 +71,7 @@ router.post(
           res.status(200).json({
             token
           });
-          res.redirect('/user/signin')
+          res.redirect('/signin')
         }
       );
     } catch (err) {
