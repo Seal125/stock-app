@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 const auth = require('../auth/auth');
 const Transaction = require('../src/Transactions');
-const StockTicker = require('../src/StockTicker')
+const StockTicker = require('../src/StockTickers')
 
 router.get('/', (req, res) => {
   res.render('transactions')
