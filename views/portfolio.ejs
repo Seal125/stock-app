@@ -9,7 +9,7 @@
       <li><a href="signin">Logout</a></li>
     </ul>
   </nav>
-  <h1 class="profile-title">Portfolio ($)</h1>
+  <h1 id="portfolio-title" class="profile-title">Portfolio ($</h1>
 
   <section class="portfolio-info">
     <section class='shares-info'>
@@ -26,8 +26,8 @@
       </ul>
     </section>
     <section id="buying-form">
-      <form class="" method="post">
-        <fieldset class="">
+      <form id="sharesForm" method="post">
+        <fieldset class="sharesField">
           <input type="text" name="ticker" placeholder="Ticker">
           <input type="text" name="shares" placeholder="Quantity">
           <input type="submit" name="buy" value="Buy">
@@ -37,4 +37,4 @@
   </section>
 </main>
 
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../api/dataManipulation/userPortfolio.js"></script>

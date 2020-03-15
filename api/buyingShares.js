@@ -46,9 +46,9 @@ router.post('/', auth, async (req, res) => {
       user_id: req.user.id,
       ticker: ticker,
     })
-    .then(async (stock) => {
-      if (stock.length !== 0) {
-        const userTic = await StockTicker.findById(stock[0]._id);
+    .then(async (tickerInfo) => {
+      if (tickerInfo.length !== 0) {
+        const userTic = await StockTicker.findById(tickerInfo[0]._id);
         userTic.quantity += Number(shares);
         await userTic.save();
       } else {
