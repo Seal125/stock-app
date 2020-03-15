@@ -22,26 +22,25 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
+app.use("/user", user);
+app.use('/shares', purchasing);
+app.use('/transactions', transactions);
 
 app.get("/", (req, res) => {
-  res.render('register.ejs')
+  res.render('register')
 });
 
-app.get('/signin', (req, res) => {
-  res.render('signin.ejs')
+app.get('/user/signin', (req, res) => {
+  res.render('signin')
 })
 
 app.get('/portfolio', (req, res) => {
-  res.render('portfolio.ejs')
+  res.render('portfolio')
 })
 
 app.get('/transactions', (req, res) => {
-  res.render('transactions.ejs')
+  res.render('transactions')
 })
-
-app.use("/user", user);
-app.use('/shares', purchasing);
-app.use('/transactions', transactions)
 
 app.listen(port, (req, res) => {
   console.log(`Listening at port ${port}`);
