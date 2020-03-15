@@ -70,7 +70,7 @@ async function getUserStockInfo() {
       token: localStorage.getItem('token')
     }
   };
-  const response = await fetch('/transactions/stocks', stock);
+  const response = await fetch('/userTransactions/stock', stock);
   const data = await response.json();
   return data;
 };

@@ -19,7 +19,7 @@ window.addEventListener('load', async () => {
       'Content-Type': 'application/json'
     }
   }
-  const response = await fetch('/transactions', transactions)
+  const response = await fetch('/userTransactions', transactions)
   const transactionData = await response.json()
   const clearTransaction = transactionData.map(transaction => {
     return {

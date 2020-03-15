@@ -19,7 +19,7 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-router.post('/buyingShares', auth, async (req, res) => {
+router.post('/stock', auth, async (req, res) => {
   try {
     const stocks = await StockTicker.find({
       user_id: req.user.id

@@ -144,7 +144,7 @@ router.post(
   }
 );
 
-router.get("/portfolio", auth, async (req, res) => {
+router.get("/buyingShares", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     res.json(user);
