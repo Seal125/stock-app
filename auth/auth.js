@@ -10,8 +10,8 @@ function auth(req, res, next) {
     const decoded = jwt.verify(token, "secret");
     req.user = decoded.user;
     next();
-  } catch (e) {
-    console.error(e);
+  } catch (err) {
+    console.error(err);
     res.status(500).send({
       message: "Invalid token."
     });

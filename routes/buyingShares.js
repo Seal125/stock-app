@@ -1,5 +1,4 @@
 const express = require('express');
-const auth = require('../auth/auth');
 const router = express.Router();
 const stockPrice = require('../api/api');
 const auth = require('../auth/auth');
@@ -15,8 +14,6 @@ router.post('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     const userBalance = user.balance;
-
-
     const totalPrice = userBalance - total;
 
     if (totalPrice > 0) {
@@ -40,16 +37,16 @@ router.post('/', auth, async (req, res) => {
     ticker: ticker,
     quantity: share,
     cost: total,
-    date: Date.now(),
+    date: Date.now()
   });
   StockTicker.find({
       user_id: req.user.id,
-      ticker: ticker,
+      ticker: ticker
     })
     .then(async (tickerInfo) => {
       if (tickerInfo.length !== 0) {
         const userTic = await StockTicker.findById(tickerInfo[0]._id);
-        userTic.quantity += Number(shares);
+        userTic.quantity += Number(share);
         await userTic.save();
       } else {
         return StockTicker.create({

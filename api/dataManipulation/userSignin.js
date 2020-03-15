@@ -7,7 +7,6 @@ form.addEventListener('submit', (e) => {
     email: form.email.value,
     password: form.password.value,
   };
-  console.log(JSON.stringify(userInfo));
   fetch('/user/signin', {
       method: 'POST',
       headers: {
@@ -20,7 +19,6 @@ form.addEventListener('submit', (e) => {
       const {
         token
       } = data;
-
       localStorage.setItem('token', token);
     });
 });

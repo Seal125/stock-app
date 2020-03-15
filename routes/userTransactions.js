@@ -5,7 +5,7 @@ const Transaction = require('../src/Transactions');
 const StockTicker = require('../src/StockTicker')
 
 router.get('/', (req, res) => {
-  res.render('userTransactions')
+  res.render('transactions')
 })
 
 router.post('/', auth, async (req, res) => {

@@ -4,7 +4,7 @@ async function isValidTicker(strValue) {
     const data = await response.json();
     return true;
   } catch (err) {
-    console.warn(err);
+    console.log(err);
     return false;
   }
 }
@@ -17,7 +17,7 @@ async function userBalance() {
       'Content-Type': 'application/json',
     },
   };
-  const response = await fetch('/portfolio', balance);
+  const response = await fetch('/user/balance', balance);
   const userBal = await response.json();
   return userBal;
 };
@@ -36,13 +36,13 @@ shares.addEventListener('submit', async (e) => {
     const userBal = {
       method: 'POST',
       headers: {
-        token: localStorage.getItem('token'),
         'Content-Type': 'application/json',
+        token: localStorage.getItem('token')
       },
       body: JSON.stringify({
         ticker: shares.ticker.value.toUpperCase(),
         shares: shares.shares.value,
-      }),
+      })
     };
 
     fetch('/buyingShares', userBal)
@@ -58,19 +58,19 @@ shares.addEventListener('submit', async (e) => {
     buySharesForm.appendChild(errorEl);
     setTimeout(() => {
       window.location.reload();
-    }, 2500);
+    }, 3000);
   }
 });
 
 async function getUserStockInfo() {
-  const stock = {
+  const stocks = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       token: localStorage.getItem('token')
-    },
+    }
   };
-  const response = await fetch('/buyingShares', stock);
+  const response = await fetch('/transactions/stocks', stock);
   const data = await response.json();
   return data;
 };
@@ -92,7 +92,7 @@ async function portfolioData(tbodyId) {
     }
 
     const portData = document.createElement('td');
-    portData.setAttribute('id', cleanStockData[i].ticker);
+    portData.setAttribute('id', clearData[i].ticker);
     portData.setAttribute('class', 'priceData');
     tRow.appendChild(portData);
     tBody.appendChild(tRow);
