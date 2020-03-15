@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const expressLayouts = require("express-ejs-layouts");
-const user = require("./routes/user");
+const user = require('./routes/user');
+const purchasing = require('./routes/buyingShares');
+const transactions = require('./routes/userTransactions');
 const InitMongoServer = require("./database/db");
 const engine = require('ejs-locals');
 const app = express();
@@ -38,6 +40,8 @@ app.get('/transactions', (req, res) => {
 })
 
 app.use("/user", user);
+app.use('/shares', purchasing);
+app.use('/transactions', transactions)
 
 app.listen(port, (req, res) => {
   console.log(`Listening at port ${port}`);
