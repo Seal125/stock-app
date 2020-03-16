@@ -1,3 +1,14 @@
+/*
+This page is for getting the data from the API and applying it to the user's portfolio. All actions first get the user token to make sure
+the user is still logged in.
+It gets their balance and prints it onto the page.
+It gets the information the user proides to buy a share, and updates their balance accordingly, as well as doing a check to make sure
+they still have enough money to buy said share.
+It gets the stock data from the API and displays it in a table for the user to see the stocks in real time.
+It updates the stock data in real time by resetting the data, and also color codes it based on the first price it gets,
+and determines whether or not the next rendered price is higher or lower.
+*/
+
 async function isValidTicker(strValue) {
   try {
     const response = await fetch(`https://sandbox.iexapis.com/stable/stock/${strValue}/price?token=Tpk_18b14453d61745afbd4ff1def2a3b51d`);
@@ -99,10 +110,6 @@ async function portfolioData(tbodyId) {
   }
 };
 
-portfolioData('portfolio');
-
-const updatePrice = window.setInterval(updatePrice, 3000, 'priceData');
-
 async function updatePriceData(name) {
   try {
     const priceSections = document.querySelectorAll(`.${name}`);
@@ -137,3 +144,6 @@ async function getFirstPrice(ticker) {
     console.warn('There was an error fetching the first ticker price.', err);
   }
 }
+
+portfolioData('portfolio');
+const updatePrice = window.setInterval(updatePrice, 3000, 'priceData');

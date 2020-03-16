@@ -1,3 +1,7 @@
+/*
+This page is a route for the transactions that the user makes. It authenticates the user before showing their transaction history.
+*/
+
 const express = require('express');
 const router = express.Router()
 const auth = require('../auth/auth');
@@ -8,7 +12,7 @@ router.get('/', (req, res) => {
   res.render('transactions')
 })
 
-router.post('/', auth, async (req, res) => {
+router.post('/transactions', auth, async (req, res) => {
   try {
     const transactions = await Transaction.find({
       user_id: req.user.id
@@ -19,7 +23,7 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-router.post('/stock', auth, async (req, res) => {
+router.post('/stockInfo', auth, async (req, res) => {
   try {
     const stocks = await StockTicker.find({
       user_id: req.user.id

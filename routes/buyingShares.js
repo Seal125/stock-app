@@ -1,3 +1,9 @@
+/*
+This page is a route for after the ser signs in or registers. Another file will use this post request, which gets the ticker and the amount
+of shares that the user wants to buy and returns that information, which will later on be manipulated to change the user's balance and
+stored as a transaction.
+*/
+
 const express = require('express');
 const router = express.Router();
 const stockPrice = require('../api/api');

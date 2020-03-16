@@ -1,3 +1,9 @@
+/*
+This page is for user signin and registration, to make sure that they input the correct data and also are aware of whether or not they
+already have an account or need to make one. This page also encrypts the passwords that the user inputs, so that it is not shown in the mongoDb
+database.
+*/
+
 const express = require("express");
 const {
   check,
@@ -10,7 +16,7 @@ const auth = require('../auth/auth')
 const User = require("../src/User");
 
 router.post(
-  "/register",
+  "/",
   [
     check("name", "Please enter your name.")
     .not()
@@ -144,7 +150,8 @@ router.post(
   }
 );
 
-router.get("/buyingShares", auth, async (req, res) => {
+//
+router.get("/portfolio", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     res.json(user.balance);

@@ -1,3 +1,7 @@
+/*
+This page creates a shema with mongoose for creating instances of buying a share to be later used in data manipulation.
+*/
+
 const mongoose = require("mongoose");
 
 const StockTicker = mongoose.Schema({

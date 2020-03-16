@@ -1,3 +1,10 @@
+/*
+This page uses the json web token package to provide a token for the server to use to identify the user, and make sure that the same user
+is logged in to show relevant data that's meant for that user.
+
+It authenticates the user's token to make sure the token given to them is valid for that user.
+*/
+
 const jwt = require("jsonwebtoken");
 
 function auth(req, res, next) {

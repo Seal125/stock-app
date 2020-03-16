@@ -3,7 +3,7 @@
   <h1>Sign In</h1>
 
   <section class="form">
-    <form method='post' id="signin-form" action='/portfolio'>
+    <form method='post' id="signin-form" action='/user/signin'>
       <fieldset class='form-field'>
         <label for="email-signin-input">Email</label>
         <input type='email' name='email' id='email-signin-input' />
@@ -11,11 +11,11 @@
         <label for="password-signin-input">Password</label>
         <input type="password" name="password" id="password-signin-input" />
 
-        <input type="submit" name="submit" value="Login" formmethod="post" formaction="/user/signin">
-        <a class="reroutes" href="/">Don't have an account?</a>
+        <input type="submit" name="submit" value="Login"">
+        <a class=" reroutes" href="/">Don't have an account?</a>
       </fieldset>
     </form>
   </section>
 </main>
 
-<script type="text/javascript" src="api/dataManipulation/userSignin.js"></script>
+<script type="text/javascript" src="public/dataManipulation/userSignin.js"></script>

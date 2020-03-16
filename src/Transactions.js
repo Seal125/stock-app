@@ -1,3 +1,7 @@
+/*
+This page creates a shema for transactions, where this information will be displayed in the transactions page.
+*/
+
 const mongoose = require("mongoose");
 
 const Transactions = mongoose.Schema({

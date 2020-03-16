@@ -1,3 +1,7 @@
+/*
+This page creates a shema for the user, where their information is stored to be later put into the database. This also tracks their balance.
+*/
+
 const mongoose = require("mongoose");
 
 const User = mongoose.Schema({

@@ -1,3 +1,8 @@
+/*
+This page takes the information provided by the user when they register for the first time, and gets the token that gets generated for them.
+That token is stored in local storage, where it can be referenced to later when traversing through the portfolio page and transactions page.
+*/
+
 const form = document.querySelector('register-form');
 
 form.addEventListener('submit', (e) => {
@@ -6,10 +11,10 @@ form.addEventListener('submit', (e) => {
   const userRegisterInfo = {
     name: form.name.value,
     email: form.email.value,
-    password: form.password.value,
+    password: form.password.value
   };
-  console.log(JSON.stringify(userRegisterInfo));
-  fetch('/user/register', {
+
+  fetch('/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

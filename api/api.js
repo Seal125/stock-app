@@ -1,3 +1,8 @@
+/*
+This page fetches the API data (which is free and has an unlimited amount of requests when you use their testing base URL) and returns it
+as JSON.
+*/
+
 const fetch = require('node-fetch')
 
 async function getStocksPrice(ticker) {

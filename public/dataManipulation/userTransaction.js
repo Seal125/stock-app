@@ -1,3 +1,9 @@
+/*
+This page renders a table for the transaction page, to show past transactions the user has made, when the page has loaded. It checks for the
+user's token to see if it is the same user that is signed in.
+}
+*/
+
 function fillTable(transactions) {
   const tBody = document.getElementById('transaction-info')
   for (let i = 0; i < transactions.length; i++) {
@@ -19,9 +25,9 @@ window.addEventListener('load', async () => {
       'Content-Type': 'application/json'
     }
   }
-  const response = await fetch('/userTransactions', transactions)
+  const response = await fetch('/routeTransactions', transactions)
   const transactionData = await response.json()
-  const clearTransaction = transactionData.map(transaction => {
+  const transactionObj = transactionData.map(transaction => {
     return {
       ticker: transaction.ticker,
       quantity: transaction.quantity,
@@ -29,5 +35,5 @@ window.addEventListener('load', async () => {
       date: transaction.date
     }
   })
-  fillTable(clearTransaction)
+  fillTable(transactionObj)
 });

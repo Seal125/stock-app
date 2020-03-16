@@ -1,6 +1,9 @@
-const mongoose = require("mongoose");
+/*
+This page connects to my MongoDB Atlas cluster, which is used to store user information (password is encrypted) to show relevant stock data
+for them, such as past transactions.
+*/
 
-const mongoDbURI = 'mongodb+srv://seal125:brasil125@stock-app-db-nzzfb.mongodb.net/test?retryWrites=true&w=majority';
+const mongoDbURI = 'mongodb+srv://seal125:{password-here}@stock-app-db-nzzfb.mongodb.net/test?retryWrites=true&w=majority';
 
 const InitMongoServer = async () => {
   try {
